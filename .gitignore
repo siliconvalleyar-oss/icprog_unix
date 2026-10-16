@@ -1,0 +1,76 @@
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.bin
+*.hex
+*.h16
+*.mot
+*.s19
+*.e2p
+*.eep
+*.bin.ext
+*.hex.ext
+*.h16.ext
+*.mot.ext
+*.eep.ext
+
+# Build directories
+build/
+obj/
+bin/
+
+# IDE files
+*.vcxproj
+*.sln
+*.suo
+*.user
+*.vcproj
+*.dsp
+*.dsw
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+!Makefile
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.tmp
+*.bak
+*.swp
+
+# Editor files
+*.vscode
+*.idea
+*.log
+*.tmp
+
+# Temporary files
+*.zip
+*.rar
+*.7z
+*.gz
+*.tar
+
+# PDF and docs (keep only essential)
+*.pdf
+!docs/*.pdf
+
+# Binary files (keep only source)
+*.exe
+*.dll
+*.sys
+*.chm
+*.hlp
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.tgz

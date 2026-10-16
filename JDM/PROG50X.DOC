@@ -1,0 +1,109 @@
+-----------------------------------------------------------
+Software to PIC12C5xx programming. (c) Jens Dyekj‘r Madsen
+-----------------------------------------------------------
+
+
+Batch files to program PIC12C508 and PIC12C509:
+PROG508  BAT    Normal 12C508 programming utility
+PROG508S BAT    Added extra delays
+PROG509  BAT    Normal 12C509 programming utility
+PROG509S BAT    Added extra delays
+READ508  BAT    Reads PIC12C508
+READ508S BAT    Added extra delays
+READ509  BAT    Reads PIC12C509
+READ509S BAT    Added extra delays
+
+Programmer software.
+PROG50X  EXE    Standard programming utility
+READ50X  EXE    Reading utility
+
+-----------------------------------------------------------
+Pascal routines:
+SHORTDEL PAS
+-----------------------------------------------------------
+These routines controls small delays. Between any output
+will need to be a small delay, and it controled by the unit.
+To allow running from Windows, is interrupts disabled when
+timer 2 is used, and the unit wait on timer 2 free before
+using it. It allows use on Windows etc.
+
+
+-----------------------------------------------------------
+Pascal routines:
+ERRMSG60 PAS
+-----------------------------------------------------------
+A small unit to include error messages in Turbo Pascal 6.0.
+
+
+-----------------------------------------------------------
+Pascal routines:
+INTHEX   PAS
+-----------------------------------------------------------
+Routines to handle INHX8 files.
+
+
+-----------------------------------------------------------
+Pascal routines:
+JDM84IO  PAS
+-----------------------------------------------------------
+Hardware I/O routines. They are designed to work with all
+jdm-programmers. They disable interrupts when sending a
+command to ensure that there are no delays at sending
+command. It seem to be an error in the PIC's that cause the
+PIC to send wrong data if an delay occeur at sending data.
+When using this unit, is ensured to keep the timing at
+commonication port. The unit also test if a modem is
+connected before sending data, to be sure that no modem's
+flash is updated. The algorithe may update modem's flash.
+
+
+-----------------------------------------------------------
+Pascal routines:
+JDM84PGM PAS
+-----------------------------------------------------------
+Routines to program / read / erase pic's. The erase routine
+has been modify to erase both data and code segment. The
+erase routine in microchip specification did not.
+
+
+-----------------------------------------------------------
+Pascal routines:
+PICUNIT  PAS
+-----------------------------------------------------------
+To keep compatibility with old routines.
+
+
+-----------------------------------------------------------
+Pascal utility:
+PROG50X  PAS
+PROG50XS PAS
+READ50X  PAS
+-----------------------------------------------------------
+A small software utility to program / read PIC12C5xx. Not
+used directly, but called by read508.bat and read509.bat,
+prog508.bat and prog509.bat.
+
+
+-----------------------------------------------------------
+Pascal routines:
+TIMER    PAS
+-----------------------------------------------------------
+This routine has a timer. The timer works for both windows
+and dos software. The idea is to use timer 0, and to use
+port[40H] to get high resolution. Timer 0 is programmed to
+mode 3 in dos, and to mode 2 in Windows. The timer counts
+faster in dos-mode than in windows mode. When in windows
+mode, then the timer remainer is the part of ticks. It is
+possible to extend the timer delay by using tick counter at
+$46C to extend it.
+
+To allow function in both windows and dos, is the timer
+reprogrammed to mode 2 in dos. In windows will it not be
+programmed. The timer is restored when program abourt, to
+mode 3 in dos-mode. Programming to mode 2 makes the timer
+to return with remainer as part of ticks in both dos and
+windows platforms.
+
+The intension of timer unit is to allow small delays in both
+dos and windows.
+
